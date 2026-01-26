@@ -4,7 +4,7 @@
    
    # Reset workspace if requested
    if reset_workspace == "1"
-     workspace_path = File.join(user.home, '.pluto', 'workspaces')
+     workspace_path = File.join(user.home, '__marimo__')
      if Dir.exist?(workspace_path)
        begin
          Dir.glob(File.join(workspace_path, '*')).each { |f| FileUtils.rm_rf(f) }
@@ -52,7 +52,7 @@ script:
   wall_time: "<%= bc_num_hours.to_i * 3600 %>"
   native:
     container:
-      name: "<%= account.present? ? "pluto-#{account}" : 'pluto' %>"
+      name: "<%= account.present? ? "marimo-#{account}" : 'marimo' %>"
       image: "ghcr.io/nesi/nesi-docker-base:v0.9.0"
       command: ["/bin/bash","-l","<%= staged_root %>/job_script_content.sh"]
       working_dir: "<%= Etc.getpwnam(ENV['USER']).dir %>"

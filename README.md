@@ -1,2 +1,2 @@
-nesi-ood-pluto-app
-OOD Pluto app for Analysis Environment (Alpha)
+# nesi-ood-marimo-app
+OOD Marimo app for Analysis Environment (Alpha)

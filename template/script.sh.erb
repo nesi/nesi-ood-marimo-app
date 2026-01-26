@@ -17,15 +17,14 @@ echo "list modules:"
 ml
 
 #
-# Start Pluto.ji Server
+# Start Marimo Server
 #
 
 # Purge the module environment to avoid conflicts
 module purge
 
 # Load the require modules
-#module load <%= context.pluto_module %>
-module load Python/3.11.6-foss-2023a
+module load <%= context.marimo_module %>
 
 ## Fix terminal colors for ls command with a wrapper script for system ls
 mkdir -p ~/ondemand/ood_bin
@@ -55,17 +54,14 @@ module list
 echo "TIMING - Starting pluto at: $(date)"
 
 # set PYTHON_PATH to include shared custom kernels created by nesi-add-kernel
-export PYTHON_PATH=/nesi/project/${PYTHON_JOB_ACCOUNT}/.pluto/share/pluto:${PYTHON_PATH}
-echo "Extending PYTHON_PATH to include shared kernels from \"/nesi/project/${PYTHON_JOB_ACCOUNT}\""
+#export PYTHON_PATH=/nesi/project/${PYTHON_JOB_ACCOUNT}/.pluto/share/pluto:${PYTHON_PATH}
+#echo "Extending PYTHON_PATH to include shared kernels from \"/nesi/project/${PYTHON_JOB_ACCOUNT}\""
 
-# Launch the Pluto Notebook Server
+# Launch the Marimo Notebook Server
 set -x
 
 # 1. Assign OOD variables (these are provided by the framework)
 # NOTE: OOD variables are typically lowercase in the ERB template
-
-#julia -e 'using Pluto; Pluto.run( Pluto.ServerSession( secret=ENV["password"], options=Pluto.Configuration.from_flat_kwargs( host="0.0.0.0", port=parse(Int, ENV["pluto_port"]), base_url="/node/$(ENV["host"])/$(ENV["PORT_CFG"])/" ) ) ) ' 
-
 
 pip install marimo
 marimo edit \

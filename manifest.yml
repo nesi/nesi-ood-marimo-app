@@ -1,7 +1,7 @@
 ---
-name: Pluto.ji
+name: Marimo
 category: Interactive Apps
 subcategory: Servers
 role: batch_connect
 description: |
-  This app will launch Pluto.ji on one or more nodes.
+  This app will launch Marimo on one or more nodes.

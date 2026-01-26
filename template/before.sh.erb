@@ -33,7 +33,7 @@ password="$(create_passwd 16)"
 PASSWORD_SHA1="$(echo -n "${password}${SALT}" | openssl dgst -sha1 | awk '{print $NF}')"
 
 # this is set for k8s in submit.yml, required for nesi-add-kernel
-export PLUTO_JOB_ACCOUNT="<%= context.account %>"
+# export MARIMO_JOB_ACCOUNT="<%= context.account %>"
 
 <%- end -%>
 
@@ -42,24 +42,3 @@ export LMOD_CONFIG_DIR=/opt/nesi/etc/lmod
 export MODULEPATH_ROOT=/opt/nesi/lmod
 export MODULEPATH=/opt/nesi/lmod/generic
 export BASH_ENV=/usr/share/lmod/lmod/init/bash
-
-# write config file for Pluto
-#export CONFIG_FILE=${PWD}/ondemand_config.py
-#cat << EOF > "${CONFIG_FILE}"
-#c.FileContentsManager.delete_to_trash = False
-#c.LabApp.check_for_updates_class = 'pluto.NeverCheckForUpdate'
-#c.LabApp.extension_manager = 'pypi'
-#c.LabServerApp.copy_absolute_path = True
-#c.PluginManager.level = 'user'
-#c.ServerApp.allow_origin = '*'
-#c.ServerApp.base_url = "/node/${host}/${PORT_CFG}/"
-#c.ServerApp.disable_check_xsrf = True
-#c.ServerApp.ip = '0.0.0.0'
-#c.ServerApp.open_browser = False
-#c.ServerApp.password = u"sha1:${SALT}:${PASSWORD_SHA1}"
-#c.ServerApp.port = ${MARINO_PORT}
-#c.ServerApp.port_retries = 0
-#c.ServerApp.root_dir = "${HOME}"
-#c.ServerApp.terminado_settings = {'shell_command': ['/bin/bash', '--login', '-i']}
-#EOF
-
