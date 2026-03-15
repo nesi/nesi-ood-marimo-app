@@ -87,9 +87,9 @@ attributes:
   num_mem:
     label: Memory per job (GB)
     max: 32
-    min: 8
+    min: 4
     step: 1
-    value: 8
+    value: 4
     widget: number_field
     display: true
 
@@ -118,7 +118,7 @@ form:
   - cluster
   - account
   - marimo_module
-  - extra_pluto_args
+  - extra_marimo_args
   - bc_num_hours
   - num_cores
   - num_mem
