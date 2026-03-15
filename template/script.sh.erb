@@ -44,18 +44,14 @@ export MODULEPATH=${MODULEPATH}:${SESSION_DIR}/modules
 # unload the OpenSSL module as it does not work properly (has a broken symbolic link)
 # however the OpenSSL installed in the docker image works fine
 # NOTE: may need to check this whenever the docker image is updated
-# TODO: check if needed with newly built pluto modules; not sure if needed in hpc context
+# TODO: check if needed with newly built marimo modules; not sure if needed in hpc context
 ml -OpenSSL
 
 # List loaded modules
 module list
 
 # Benchmark info
-echo "TIMING - Starting pluto at: $(date)"
-
-# set PYTHON_PATH to include shared custom kernels created by nesi-add-kernel
-#export PYTHON_PATH=/nesi/project/${PYTHON_JOB_ACCOUNT}/.pluto/share/pluto:${PYTHON_PATH}
-#echo "Extending PYTHON_PATH to include shared kernels from \"/nesi/project/${PYTHON_JOB_ACCOUNT}\""
+echo "TIMING - Starting Marimo at: $(date)"
 
 # Launch the Marimo Notebook Server
 set -x
@@ -63,7 +59,6 @@ set -x
 # 1. Assign OOD variables (these are provided by the framework)
 # NOTE: OOD variables are typically lowercase in the ERB template
 
-pip install marimo
 marimo edit \
   --no-token \
   --headless \
