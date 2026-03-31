@@ -2,19 +2,6 @@
    user = OodSupport::User.new
    weka_nfs_server = Resolv.getaddress("weka-nfs")
    
-   # Reset workspace if requested
-   #if reset_workspace == "1"
-   #  workspace_path = File.join(user.home, '.python_workspace_here')
-   #  if Dir.exist?(workspace_path)
-   #    begin
-   #      Dir.glob(File.join(workspace_path, '*')).each { |f| FileUtils.rm_rf(f) }
-   #      Rails.logger.info "Python workspace reset for user: #{user.name}"
-   #    rescue => e
-   #      Rails.logger.error "Failed to reset Python workspace for user #{user.name}: #{e.message}"
-   #    end
-   #  end
-   #end
-   
    # Initialize nesi_gid to nil
    nesi_gid = nil
 

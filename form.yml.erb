@@ -17,17 +17,6 @@
 # Define attribute values that aren't meant to be modified by the user within
 # the Dashboard form
 attributes:
-  # Add reset workspace option
-  #reset_workspace:
-  #  widget: "check_box"
-  #  label: "⚠️ Reset Marimo workspace before starting"
-  #  help: |
-  #    <div style="background-color: #fff3cd; border: 1px solid #ffeaa7; border-radius: 5px; padding: 10px; margin-top: 5px;">
-  #    <strong>Important:</strong> Check this box to clear workspace files that may cause 503 errors with large files.
-  #    This will delete ~/.jupyter/lab/workspaces/* before starting your session.
-  #    </div>
-  #  value: false
-  #  cacheable: false
 
   # select the cluster
   cluster:
@@ -46,18 +35,13 @@ attributes:
 <% end %>
     cacheable: false  # we always want k8s at the top?
 
-  # allow user to choose which Pluto module is loaded
+  # allow user to choose which Marimo module is loaded
   marimo_module:
     widget: select
     label: "Marimo module"
     options:
       - [ "Marimo 0.20.3 + Python/3.11.6-foss-2023a", "Marimo/0.20.3-foss-2023a-Python-3.11.6" ]
     cacheable: false  # default to latest (first in list)
-
-  # not used
-  extra_marimo_args: ""
-  
-  node: ""
 
   account:
     label: "Project Code"
@@ -114,7 +98,6 @@ attributes:
 #   option, then it will not appear in the form page that the user sees in the
 #   Dashboard
 form:
-  #- reset_workspace  # Add this at the top for visibility
   - cluster
   - account
   - marimo_module
