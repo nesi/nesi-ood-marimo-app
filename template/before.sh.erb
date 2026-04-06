@@ -21,7 +21,7 @@ source /bin/create_salt_and_sha1
 port=$(find_port ${host})
 export HOST_CFG="${host}"
 export PORT_CFG="${port}"
-export MARINO_PORT=8080
+export MARINO_PORT="${port}"
 
 # Generate SHA1 encrypted password (requires OpenSSL installed)
 SALT="$(create_passwd 16)"
