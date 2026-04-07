@@ -6,7 +6,7 @@ git add .
 git commit -m 'update version of the NeSI OOD Pluto App'
 # For commiting to github for the first time
 git branch -M main
-git remote add origin git@github.com:nesi/nesi-ood-pluto-app.git
+git remote add origin git@github.com:nesi/nesi-ood-marimo-app.git
 git push -uf origin main
 # push your new commit:
 #git push -u origin main
