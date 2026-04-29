@@ -1,7 +1,6 @@
 ---
 name: Marimo
-category: Interactive Apps
-subcategory: Servers
+category: Interactive Development
 role: batch_connect
 description: |
   This app will launch Marimo on one or more nodes.
